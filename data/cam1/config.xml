@@ -11,18 +11,18 @@
   <cols>1</cols>
   <dt>f</dt>
   <data>
-    -9.68034565e-001 -2.46603751e+000 1.98319867e-001 -6.56637037e-003
-    7.20381403e+000</data></DistortionCoeffs>
+    -9.68034565e-01 -2.46603751e+00 1.98319867e-01 -6.56637037e-03
+    7.20381403e+00</data></DistortionCoeffs>
 <RotationValues type_id="opencv-matrix">
   <rows>3</rows>
   <cols>1</cols>
   <dt>f</dt>
   <data>
-    -1.69040477e+000 -2.71024704e-001 8.36775184e-001</data></RotationValues>
+    -1.06793068e-01 1.68678653e+00 -9.08748865e-01</data></RotationValues>
 <TranslationValues type_id="opencv-matrix">
   <rows>3</rows>
   <cols>1</cols>
   <dt>f</dt>
   <data>
-    4.96369043e+003 4.13308301e+003 1.13673047e+004</data></TranslationValues>
+    -1.95254379e+02 -2.16619812e+02 1.08281860e+03</data></TranslationValues>
 </opencv_storage>
