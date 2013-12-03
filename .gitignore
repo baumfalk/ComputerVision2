@@ -1,6 +1,10 @@
 #Vidja
 *.avi
 
+#cray cray xworkspaces
+*.pbxproj
+*.xcworkspacedata
+
 # Compiled Object files
 *.slo
 *.lo
