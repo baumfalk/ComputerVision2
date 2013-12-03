@@ -1,3 +1,6 @@
+#Vidja
+*.avi
+
 # Compiled Object files
 *.slo
 *.lo
