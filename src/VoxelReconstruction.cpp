@@ -97,6 +97,8 @@ void VoxelReconstruction::run(int argc, char** argv)
 
 #ifdef __linux__
 	glut.initializeLinux(SCENE_WINDOW.c_str(), argc, argv);
+#elif defined __APPLE__
+	glut.initializeLinux(SCENE_WINDOW.c_str(), argc, argv);
 #elif defined _WIN32
 	glut.initializeWindows(SCENE_WINDOW.c_str());
 	glut.mainLoopWindows();

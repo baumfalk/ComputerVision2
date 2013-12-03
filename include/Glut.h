@@ -65,7 +65,7 @@ public:
 	Glut(Scene3DRenderer &);
 	virtual ~Glut();
 
-#ifdef __linux__
+#ifndef _WIN32
 	void initializeLinux(const char*, int, char**);
 	static void mouse(int, int, int, int);
 #endif

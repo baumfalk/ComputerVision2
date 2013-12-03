@@ -26,7 +26,7 @@ Glut::~Glut()
 {
 }
 
-#ifdef __linux__
+#ifndef _WIN32
 /**
  * Main OpenGL initialisation for Linux-like system (with Glut)
  */
@@ -315,7 +315,7 @@ void Glut::keyboard(unsigned char key, int x, int y)
 	}
 }
 
-#ifdef __linux__
+#ifndef _WIN32
 /**
  * Handle linux mouse input (clicks and scrolls)
  */
@@ -487,7 +487,7 @@ void Glut::reshape(int width, int height)
  */
 void Glut::idle()
 {
-#ifdef __linux__
+#ifndef _WIN32
 	glutPostRedisplay();
 #endif
 }
@@ -524,7 +524,7 @@ void Glut::display()
 
 	glFlush();
 
-#ifdef __linux__
+#ifndef _WIN32
 	glutSwapBuffers();
 #elif defined _WIN32
 	SwapBuffers(scene3d.getHDC());
@@ -620,7 +620,7 @@ void Glut::update(int v)
 	// Update the frame slider position
 	setTrackbarPos("Frame", VIDEO_WINDOW, scene3d.getCurrentFrame());
 
-#ifdef __linux__
+#ifndef _WIN32
 	glutSwapBuffers();
 	glutTimerFunc(10, update, 0);
 #endif
