@@ -33,9 +33,6 @@ local.properties
 .settings/
 .loadpath
 
-# Video files  
-*.avi
-
 # External tool builders
 .externalToolBuilders/
 
