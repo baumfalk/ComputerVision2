@@ -4,6 +4,7 @@
 #cray cray xworkspaces
 *.pbxproj
 *.xcworkspacedata
+*.xccheckout
 
 # Compiled Object files
 *.slo
