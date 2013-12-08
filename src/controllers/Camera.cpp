@@ -39,31 +39,16 @@ bool Camera::initialize()
 	_initialized = true;
 
 	Mat bg_image;
-	if (General::fexists(_data_path + General::BackgroundImageFile))
+
+	VideoCapture video = VideoCapture(_data_path + General::BackgroundVideoFile);
+	assert(video.isOpened());
+	video >> bg_image;
+	if (bg_image.empty())
 	{
-		bg_image = imread(_data_path + General::BackgroundImageFile);
-		if (bg_image.empty())
-		{
-			cout << "Unable to read: " << _data_path + General::BackgroundImageFile;
-			return false;
-		}
-	}
-	else if (General::fexists(_data_path + General::BackgroundVideoFile))
-	{
-		VideoCapture video = VideoCapture(_data_path + General::BackgroundVideoFile);
-		assert(video.isOpened());
-		video >> bg_image;
-		if (bg_image.empty())
-		{
-			cout << "Unable to read: " << _data_path + General::BackgroundVideoFile;
-			return false;
-		}
-	}
-	else
-	{
-		cout << "Unable to find background video: " << _data_path + General::BackgroundVideoFile;
+		cout << "Unable to read: " << _data_path + General::BackgroundVideoFile;
 		return false;
 	}
+
 	assert(!bg_image.empty());
 
 	// Disect the background image in HSV-color space
