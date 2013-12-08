@@ -61,11 +61,17 @@ class Scene3DRenderer
 	int _previous_camera;
 
 	int _h_threshold;
+
 	int _ph_threshold;
 	int _s_threshold;
+
 	int _ps_threshold;
 	int _v_threshold;
+
 	int _pv_threshold;
+
+	int _e_size;
+	int _d_size;
 
 	// edge points of the virtual ground floor grid
 	std::vector<std::vector<cv::Point3i*> > _floor_grid;

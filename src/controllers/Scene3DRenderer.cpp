@@ -56,16 +56,24 @@ Scene3DRenderer::Scene3DRenderer(Reconstructor &r, const vector<Camera*> &cs) :
 	const int V = 25;
 	_h_threshold = H;
 	_ph_threshold = H;
+
 	_s_threshold = S;
 	_ps_threshold = S;
+
 	_v_threshold = V;
 	_pv_threshold = V;
 
-	createTrackbar("Frame", VIDEO_WINDOW, &_current_frame, _number_of_frames - 2);
-	createTrackbar("H", VIDEO_WINDOW, &_h_threshold, 255);
-	createTrackbar("S", VIDEO_WINDOW, &_s_threshold, 255);
-	createTrackbar("V", VIDEO_WINDOW, &_v_threshold, 255);
+	_e_size = 1;
+	_d_size = 1;
 
+	createTrackbar("Frame", VIDEO_WINDOW, &_current_frame, _number_of_frames - 2);
+	createTrackbar("H_min", VIDEO_WINDOW, &_h_threshold, 255);
+
+	createTrackbar("S_min", VIDEO_WINDOW, &_s_threshold, 255);
+
+	createTrackbar("V_min", VIDEO_WINDOW, &_v_threshold, 255);
+	createTrackbar("e-size", VIDEO_WINDOW, &_e_size , 20);
+	createTrackbar("d-size", VIDEO_WINDOW, &_d_size, 20);
 	createFloorGrid();
 	setTopView();
 }
@@ -130,6 +138,16 @@ void Scene3DRenderer::processForeground(Camera* camera)
 	// Remove noise
 #ifndef USE_GRAPHCUTS
 	// Using Erosion and/or Dilation of the foreground image
+	int erosion_type = MORPH_CROSS;
+	Mat element = getStructuringElement(erosion_type,
+		Size(2 * _e_size + 1, 2 * _e_size + 1),
+		Point( _e_size, _e_size ) );
+	erode(foreground, foreground, element);
+	int dilation_type = MORPH_CROSS;
+	Mat element2 = getStructuringElement( dilation_type,
+		Size(2 * _d_size + 1, 2 * _d_size + 1),
+		Point(_d_size, _d_size));
+	dilate(foreground, foreground, element2);
 #else
 	// Using Graph cuts on the foreground image
 #endif

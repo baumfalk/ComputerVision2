@@ -83,9 +83,9 @@ void arcball_add_distance(int delta)
 // affect the arcball's orientation on openGL
 void arcball_rotate()
 {
-	//glTranslatef(0, 0, ab_distance);    //translate zoom on eye z
-	//glMultMatrixf(ab_quat);
-	//glRotatef(ab_rotation, 0, 0, 1);    //rotate around arcball z
+	glTranslatef(0, 0, ab_distance);    //translate zoom on eye z
+	glMultMatrixf(ab_quat);
+	glRotatef(ab_rotation, 0, 0, 1);    //rotate around arcball z
 }
 
 // convert the quaternion into a rotation matrix
