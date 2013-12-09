@@ -61,17 +61,16 @@ class Scene3DRenderer
 	int _previous_camera;
 
 	int _h_threshold;
-
 	int _ph_threshold;
 	int _s_threshold;
-
 	int _ps_threshold;
 	int _v_threshold;
-
 	int _pv_threshold;
 
 	int _e_size;
+	int _pe_size;
 	int _d_size;
+	int _pd_size;
 
 	// edge points of the virtual ground floor grid
 	std::vector<std::vector<cv::Point3i*> > _floor_grid;
@@ -91,6 +90,33 @@ public:
 	bool processFrame();
 	void setCamera(int);
 	void setTopView();
+
+
+	void setESize(int e_size) {
+		_e_size = e_size;
+	}
+	void setPESize(int pe_size) {
+		_pe_size = pe_size;
+	}
+	void setDSize(int d_size) {
+		_d_size = d_size;
+	}
+	void setPDSize(int pd_size) {
+		_pd_size = pd_size;
+	}
+
+	int getESize(){
+		return _e_size;
+	}
+	int getPESize() {
+		return _pe_size;
+	}
+	int getDSize() {
+		return _d_size;
+	}
+	int getPDSize() {
+		return _pd_size;
+	}
 
 	const std::vector<Camera*>& getCameras() const
 	{

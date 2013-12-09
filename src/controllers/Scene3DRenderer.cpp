@@ -64,7 +64,9 @@ Scene3DRenderer::Scene3DRenderer(Reconstructor &r, const vector<Camera*> &cs) :
 	_pv_threshold = V;
 
 	_e_size = 1;
+	_pe_size = 1;
 	_d_size = 1;
+	_pd_size = 1;
 
 	createTrackbar("Frame", VIDEO_WINDOW, &_current_frame, _number_of_frames - 2);
 	createTrackbar("H_min", VIDEO_WINDOW, &_h_threshold, 255);

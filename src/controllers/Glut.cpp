@@ -574,7 +574,8 @@ void Glut::update(int v)
 		scene3d.setPreviousFrame(scene3d.getCurrentFrame());
 	}
 	else if (scene3d.getHThreshold() != scene3d.getPHThreshold() || scene3d.getSThreshold() != scene3d.getPSThreshold()
-						|| scene3d.getVThreshold() != scene3d.getPVThreshold())
+						|| scene3d.getVThreshold() != scene3d.getPVThreshold() || scene3d.getESize() != scene3d.getPESize() ||
+						scene3d.getDSize() != scene3d.getPDSize())
 	{
 		// Update the scene if one of the HSV sliders was moved (when the video is paused)
 		scene3d.processFrame();
@@ -583,6 +584,8 @@ void Glut::update(int v)
 		scene3d.setPHThreshold(scene3d.getHThreshold());
 		scene3d.setPSThreshold(scene3d.getSThreshold());
 		scene3d.setPVThreshold(scene3d.getVThreshold());
+		scene3d.setPDSize(scene3d.getDSize());
+		scene3d.setPESize(scene3d.getESize());
 	}
 
 	// Auto rotate the scene
