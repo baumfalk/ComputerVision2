@@ -90,7 +90,7 @@ void VoxelReconstruction::run(int argc, char** argv)
 
 	destroyAllWindows();
 	namedWindow(VIDEO_WINDOW, CV_WINDOW_KEEPRATIO);
-
+	namedWindow(SLIDER_WINDOW, CV_WINDOW_KEEPRATIO);
 	Reconstructor reconstructor(_cam_views);
 	Scene3DRenderer scene3d(reconstructor, _cam_views);
 	Glut glut(scene3d);

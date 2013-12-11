@@ -621,7 +621,7 @@ void Glut::update(int v)
 	}
 
 	// Update the frame slider position
-	setTrackbarPos("Frame", VIDEO_WINDOW, scene3d.getCurrentFrame());
+	setTrackbarPos("Frame", SLIDER_WINDOW, scene3d.getCurrentFrame());
 
 #ifndef _WIN32
 	glutSwapBuffers();

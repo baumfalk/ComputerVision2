@@ -68,14 +68,14 @@ Scene3DRenderer::Scene3DRenderer(Reconstructor &r, const vector<Camera*> &cs) :
 	_d_size = 1;
 	_pd_size = 1;
 
-	createTrackbar("Frame", VIDEO_WINDOW, &_current_frame, _number_of_frames - 2);
-	createTrackbar("H_min", VIDEO_WINDOW, &_h_threshold, 255);
+	createTrackbar("Frame", SLIDER_WINDOW, &_current_frame, _number_of_frames - 2);
+	createTrackbar("H", SLIDER_WINDOW, &_h_threshold, 255);
 
-	createTrackbar("S_min", VIDEO_WINDOW, &_s_threshold, 255);
+	createTrackbar("S", SLIDER_WINDOW, &_s_threshold, 255);
 
-	createTrackbar("V_min", VIDEO_WINDOW, &_v_threshold, 255);
-	createTrackbar("e-size", VIDEO_WINDOW, &_e_size , 20);
-	createTrackbar("d-size", VIDEO_WINDOW, &_d_size, 20);
+	createTrackbar("V", SLIDER_WINDOW, &_v_threshold, 255);
+	createTrackbar("e", SLIDER_WINDOW, &_e_size, 20);
+	createTrackbar("d", SLIDER_WINDOW, &_d_size, 20);
 	createFloorGrid();
 	setTopView();
 }

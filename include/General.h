@@ -26,6 +26,7 @@ namespace nl_uu_science_gmt
 // Version and Main OpenCV window name
 const static std::string VERSION = "2.0";
 const static std::string VIDEO_WINDOW = "Video";
+const static std::string SLIDER_WINDOW = "Sliders";
 const static std::string SCENE_WINDOW = "OpenGL 3D scene";
 
 // Some OpenCV colors
