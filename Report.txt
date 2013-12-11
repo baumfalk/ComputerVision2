@@ -1,0 +1,20 @@
+Computer Vision Assignment 2
+
+Jetze Baumfalk 3471055
+Barend Poot 3539784
+
+Q: Report how you created the camera intrinsic and extrinsic parameters.
+A: The intrinsic data was calculated by using the movies recorded for this purpose. We achieved the best results with 15 samples of the chessboard in different orientations. Originally, we did do some photo editing on frames from the movies to remove the glare, but didn't use those pictures in the end.
+ We calculated the extrinsic data by marking the chessboard corners by hand.
+
+
+Q: Report you results (ie.: your optimal HSV-parameters, how you got them, and anything else you've done to improve the background subtraction process).
+A: We started with all sliders set to 0. We first slid the V-slide until we did not see any change in voxel density on the OpenGL 3D Scene window. Then we slid the S-slide until the basic figure(s) of the person(s) became distorted (e.g. holes started to appear, heads disappearing). We found that the legs were the most difficult factor here. Quite often there was a little bit of noise left which we couldn't remove because then the legs would disappear completely as well. In the end, we didn't move the H slider, since this caused large holes in the figure of the person. At first, we suspected that this is because our trousers were very alike to the dark tiles on the floor. However, even with a classmates video whose trousers were of much lighter colour, we still found that leaving the H slider at 0 gave the best results. Furthermore, we also tried to move the H slider first (in similar fashion to the V-slide). While this worked quite well to 'cut out' the silhouette, some voxels that represented the tiles remained. Since this was more difficult to remove using dilation and erosion, we chose the other way.
+
+The optimal HSV value that we found is (0,36,42).
+In an earlier version of the program we implemented sliders for the maximum value of  H,S and V (in the default code the max threshold is always 255), but we did not find better results.
+
+We also implemented dilation and erosion, as well as accompanying sliders to adjust these values. We found that an erosion value and dilation value of 1 or 2 gave the best results. 
+The values differed a bit between videos, but we chose either 1 or 2 in all of them.
+
+
